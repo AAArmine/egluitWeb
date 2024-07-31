@@ -1,38 +1,76 @@
 <template>
   <header class="header">
     <div class="contactContainer">
-      <div class="wrapper-70"><span class="bold">Telefon:</span>  23 34 28 99 Mail: stefan@egluit.dk</div>
+      <div class="wrapper-70">
+        <a :href="`tel:${phoneNumber}`" class="contact-item">
+          <span class="bold">Telefon:</span> {{ phoneNumber }}
+        </a>
+        <a :href="`mailto:${emailAddress}`" class="contact-item ml-20">
+          <span class="bold">Mail:</span> {{ emailAddress }}
+        </a>
+      </div>
     </div>
-    <div class="wrapper-70"><NavBar :additionalClass="additionalClass" /></div>
+    <div class="navbar-wrapper wrapper-70">
+      <NavBar :addClassHome="addClassHome" />
+    </div>
   </header>
 </template>
 
 <script>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import NavBar from './NavBar.vue';
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import NavBar from "./NavBar.vue";
 
 export default {
-  name: 'AppHeader',
+  name: "AppHeader",
   components: {
-    NavBar
+    NavBar,
   },
   setup() {
     const route = useRoute();
-    const additionalClass = computed(() => (route.path === '/' ? 'home-page' : 'other-page'));
-    return { additionalClass };
-  }
+    const addClassHome = computed(() =>
+      route.path === "/" ? "home-page" : "other-page"
+    );
+
+    const phoneNumber = "23 34 28 99";
+    const emailAddress = "stefan@egluit.dk";
+
+    return { addClassHome, phoneNumber, emailAddress };
+  },
 };
 </script>
 
 <style lang="scss">
 .header {
   .contactContainer {
-    padding: 20px 0;
+    padding: 16px 0;
     background-color: $bg-color-dark;
-    color:white;
+    color: white;
     font-size: 19px;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    @media (max-width: $tablet-width) {
+      padding: 12px 0;
+      font-size: 16px;
+    }
+
+    .contact-item {
+      color: white;
+      text-decoration: none;
+      @media (max-width: $mobile-width) {
+        display: block;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .navbar-wrapper {
+    @media (max-width: $tablet-width) {
+      width: 100%;
+    }
   }
 }
 </style>

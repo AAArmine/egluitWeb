@@ -22,7 +22,7 @@ const routes = [
   {
     path: "/benefits",
     name: "Benefits",
-    component: BenefitPage,
+    // component: BenefitPage,
   },
 ];
 
