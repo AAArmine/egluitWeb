@@ -9,16 +9,19 @@
     >
       <router-view />
     </transition>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   name: "App",
   components: {
     AppHeader,
+    AppFooter,
   },
   methods: {
     beforeEnter(el) {
@@ -48,7 +51,10 @@ body {
   font-family: "Quicksand", sans-serif;
   font-weight: 400;
   background: $bg-color;
-
+  a {
+    text-decoration: none;
+    color: unset;
+  }
   .wrapper-80 {
     width: 80%;
     margin: auto;

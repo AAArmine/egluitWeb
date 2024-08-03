@@ -11,14 +11,12 @@
       </div>
     </div>
     <div class="navbar-wrapper wrapper-70">
-      <NavBar :addClassHome="addClassHome" />
+      <NavBar />
     </div>
   </header>
 </template>
 
 <script>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
 import NavBar from "./NavBar.vue";
 
 export default {
@@ -27,15 +25,10 @@ export default {
     NavBar,
   },
   setup() {
-    const route = useRoute();
-    const addClassHome = computed(() =>
-      route.path === "/" ? "home-page" : "other-page"
-    );
-
     const phoneNumber = "23 34 28 99";
     const emailAddress = "stefan@egluit.dk";
 
-    return { addClassHome, phoneNumber, emailAddress };
+    return { phoneNumber, emailAddress };
   },
 };
 </script>
