@@ -62,6 +62,10 @@ body {
       width: 90%;
     }
   }
+  .wrapper-90 {
+    width: 90%;
+    margin: auto;
+  }
   .wrapper-70 {
     width: 70%;
     margin: auto;
