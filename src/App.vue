@@ -96,6 +96,10 @@ body {
     margin-left: 20px;
   }
 }
+.title {
+  font-size: 42px;
+  font-weight: 400;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1.5s;

@@ -21,7 +21,7 @@
           <router-link to="/about">Om Os</router-link>
         </li>
         <li :class="{ active: isActive('/benefits') }">
-          <router-link to="/benefits">Ydelser</router-link>
+          <router-link to="/services">Ydelser</router-link>
         </li>
         <li :class="{ active: isActive('/contact') }">
           <router-link to="/contact">Kontakt</router-link>
