@@ -25,7 +25,7 @@ export default {
 
 <style scoped lang="scss">
 .quote {
-  padding-bottom: 50px;
+  padding: 50px 0;
   .wrapper-80 {
     display: flex;
     justify-content: space-between;
@@ -59,6 +59,7 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+      background-attachment: fixed;
       width: 70%;
       height: 400px;
     }

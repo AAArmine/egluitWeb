@@ -3,6 +3,8 @@ import HomePage from "../views/HomePage.vue";
 import AboutPage from "../views/AboutPage.vue";
 import ContactPage from "../views/ContactPage.vue";
 import BenefitPage from "../views/ServicesPage.vue";
+import AdminEntry from "../views/AdminEntry.vue";
+
 
 const routes = [
   {
@@ -24,6 +26,19 @@ const routes = [
     path: "/services",
     name: "ServicesPage",
     component: BenefitPage,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: AdminEntry,
+    children: [
+      {
+        path: "", // Default admin route
+        name: "AdminDashboard",
+        component: () => import("../views/AdminDashboard.vue"),
+      },
+      // Add other admin routes here
+    ],
   },
 ];
 

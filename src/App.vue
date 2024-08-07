@@ -1,6 +1,7 @@
+<!-- src/App.vue -->
 <template>
   <div id="app">
-    <AppHeader />
+    <AppHeader v-if="!isAdminPanel" />
     <transition
       name="fade"
       @before-enter="beforeEnter"
@@ -9,19 +10,27 @@
     >
       <router-view />
     </transition>
-    <AppFooter />
+    <AppFooter v-if="!isAdminPanel" />
   </div>
 </template>
 
 <script>
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     AppHeader,
     AppFooter,
+  },
+  setup() {
+    const route = useRoute();
+    const isAdminPanel = computed(() => route.path.startsWith('/admin'));
+
+    return { isAdminPanel };
   },
   methods: {
     beforeEnter(el) {
@@ -29,12 +38,12 @@ export default {
     },
     enter(el, done) {
       el.offsetWidth;
-      el.style.transition = "opacity 0.5s";
+      el.style.transition = 'opacity 0.5s';
       el.style.opacity = 1;
       done();
     },
     leave(el, done) {
-      el.style.transition = "opacity 0.5s";
+      el.style.transition = 'opacity 0.5s';
       el.style.opacity = 0;
       done();
     },
