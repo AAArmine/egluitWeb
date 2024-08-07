@@ -76,21 +76,33 @@ export default {
     align-items: center;
     height: 100%;
     padding: 0 0 90px;
+    @media (max-width: $tablet-width) {
+      flex-wrap: wrap;
+    }
     .content-item {
       width: 50%;
       opacity: 0;
       animation: fadeIn 2s forwards;
       animation-delay: 1s;
+      @media (max-width: $tablet-width) {
+        width: 100%;
+      }
       h1 {
         margin-left: 35px;
         font-size: 27px;
         display: inline-block;
         transform: scaleX(1.2);
+         @media (max-width: $mobile-width) {
+         font-size: 22px;
+      }
       }
       p {
         margin-top: 0;
         font-size: 29px;
         font-weight: 100;
+        @media (max-width: $mobile-width) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -106,6 +118,14 @@ export default {
     transform-origin: left center;
     animation: expandWidth 1.5s forwards;
     animation-delay: 1.5s;
+    @media (max-width: $tablet-width) {
+      height: 80px;
+    }
+    @media (max-width: $mobile-width) {
+      bottom: 40px;
+      left: 10%;
+      height: 45px;
+    }
     span {
       position: relative;
       color: white;
@@ -114,6 +134,14 @@ export default {
       line-height: 55px;
       text-align: center;
       display: block;
+      @media (max-width: $tablet-width) {
+        font-size: 30px;
+        line-height: 35px;
+      }
+      @media (max-width: $mobile-width) {
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@
       <div class="content-item">
         <h1 class="title">Hvad står vi for?</h1>
         <span class="bar"></span>
-        <p>
+        <p class="text">
           Lad os stå ved din side som din IT-partner og bidrage til din
           virksomheds succes. Med vores ekspertise og erfaring har vi tidligere
           leveret skræddersyede løsninger, som har hjulpet virksomheder. Vi
@@ -51,11 +51,13 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    @media (max-width: $mobile-width) {
+      flex-wrap: wrap;
+    }
     .content-item {
       width: 49%;
-      p {
-        font-size: 19px;
-        line-height: 35px;
+      @media (max-width: $mobile-width) {
+        width: 100%;
       }
     }
     .image {
@@ -65,6 +67,11 @@ export default {
       background-position: center center;
       width: 49%;
       height: 400px;
+      @media (max-width: $mobile-width) {
+        width: 100%;
+        margin-top: 20px;
+        height: 250px;
+      }
     }
   }
 }

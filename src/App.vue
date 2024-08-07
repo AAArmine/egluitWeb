@@ -15,20 +15,20 @@
 </template>
 
 <script>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import AppHeader from './components/AppHeader.vue';
-import AppFooter from './components/AppFooter.vue';
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AppHeader,
     AppFooter,
   },
   setup() {
     const route = useRoute();
-    const isAdminPanel = computed(() => route.path.startsWith('/admin'));
+    const isAdminPanel = computed(() => route.path.startsWith("/admin"));
 
     return { isAdminPanel };
   },
@@ -38,12 +38,12 @@ export default {
     },
     enter(el, done) {
       el.offsetWidth;
-      el.style.transition = 'opacity 0.5s';
+      el.style.transition = "opacity 0.5s";
       el.style.opacity = 1;
       done();
     },
     leave(el, done) {
-      el.style.transition = 'opacity 0.5s';
+      el.style.transition = "opacity 0.5s";
       el.style.opacity = 0;
       done();
     },
@@ -53,7 +53,9 @@ export default {
 
 <style lang="scss">
 @import "@/assets/_variables.scss";
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   padding: 0;
   margin: 0;
@@ -108,6 +110,24 @@ body {
 .title {
   font-size: 42px;
   font-weight: 400;
+  @media (max-width: $tablet-width) {
+    font-size: 35px;
+  }
+  @media (max-width: $tablet-width) {
+    font-size: 28px;
+  }
+}
+.text {
+  font-size: 19px;
+  line-height: 35px;
+  @media (max-width: $tablet-width) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  @media (max-width: $mobile-width) {
+    font-size: 17px;
+    line-height: 27px;
+  }
 }
 .fade-enter-active,
 .fade-leave-active {

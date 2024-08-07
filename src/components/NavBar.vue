@@ -20,7 +20,7 @@
         <li :class="{ active: isActive('/about') }">
           <router-link to="/about">Om Os</router-link>
         </li>
-        <li :class="{ active: isActive('/benefits') }">
+        <li :class="{ active: isActive('/services') }">
           <router-link to="/services">Ydelser</router-link>
         </li>
         <li :class="{ active: isActive('/contact') }">

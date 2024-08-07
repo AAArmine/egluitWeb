@@ -1,8 +1,8 @@
 <template>
   <footer class="footer">
-    <router-link to="/" v-if="isHome" class="wrapper-70 footer-home">
+    <a href="#top" v-if="isHome" class="wrapper-70 footer-home">
       © {{ currentYear }} - Eglu IT ApS
-    </router-link>
+    </a>
     <div v-else class="footer-cont">
       <router-link to="/">
         Eglu IT

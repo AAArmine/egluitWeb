@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" id="top">
     <div class="contactContainer">
       <div class="wrapper-70">
         <a :href="`tel:${phoneNumber}`" class="contact-item">

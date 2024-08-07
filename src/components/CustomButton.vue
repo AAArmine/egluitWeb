@@ -3,8 +3,8 @@
     :style="buttonStyle"
     @click="navigate"
     class="custom-button"
-    @mouseover="isHovered = true"
-    @mouseleave="isHovered = false"
+    @mouseover="setHovered(true)"
+    @mouseleave="setHovered(false)"
   >
     {{ text }}
   </button>
@@ -40,7 +40,11 @@ export default {
       type: String,
       default: "",
     },
-    hoverBorder: {
+    hoverBorderColor: {
+      type: String,
+      default: "",
+    },
+    borderColor: {
       type: String,
       default: "",
     },
@@ -48,19 +52,27 @@ export default {
   setup(props) {
     const isHovered = ref(false);
 
-    const buttonStyle = computed(() => ({
-      backgroundColor: isHovered.value
-        ? props.hoverColor
-        : props.backgroundColor,
-      color: isHovered.value ? props.hoverTextColor : props.textColor,
-      border: `1px solid ${
-        isHovered.value ? props.hoverBorder || props.textColor : props.textColor
-      }`,
-      padding: "10px 20px",
-      transition:
-        "background-color 0.3s ease, color 0.3s ease, border 0.3s ease", // Smooth background color, text color, and border transition
-      cursor: "pointer",
-    }));
+    const setHovered = (value) => {
+      isHovered.value = value;
+    };
+
+    const buttonStyle = computed(() => {
+      const borderColor = isHovered.value
+        ? props.hoverBorderColor || props.textColor
+        : props.borderColor || props.textColor;
+
+      return {
+        backgroundColor: isHovered.value
+          ? props.hoverColor
+          : props.backgroundColor,
+        color: isHovered.value ? props.hoverTextColor : props.textColor,
+        border: `1px solid ${borderColor}`,
+        padding: "10px 20px",
+        transition:
+          "background-color 0.3s ease, color 0.3s ease, border 0.3s ease",
+        cursor: "pointer",
+      };
+    });
 
     const navigate = () => {
       if (props.navigateTo) {
@@ -71,7 +83,7 @@ export default {
     return {
       buttonStyle,
       navigate,
-      isHovered,
+      setHovered,
     };
   },
 };
@@ -83,6 +95,7 @@ export default {
   overflow: hidden;
   outline: none;
   min-width: 150px;
-  font-size: 17px;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 </style>

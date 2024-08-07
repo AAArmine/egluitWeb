@@ -4,7 +4,7 @@
       <div class="image"></div>
       <div class="content-item">
         <div class="cont">
-          <p>
+          <p class="text">
             "Vi ønsker at gøre arbejdet lettere for virksomhedsejere - lad os
             hjælpe dig med dine IT udfordringer, så DU kan koncentrere dig om at
             drive din virksomhed bedst muligt"
@@ -30,9 +30,15 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media (max-width: $mobile-width) {
+      flex-wrap: wrap;
+    }
     .content-item {
       position: relative;
       width: 30%;
+      @media (max-width: $mobile-width) {
+        width: 100%;
+      }
       .cont {
         background-color: white;
         padding: 0px 60px;
@@ -41,6 +47,12 @@ export default {
         left: -400px;
         font-size: 20px;
         top: 100px;
+        @media (max-width: $mobile-width) {
+          top: -300px;
+          left: 0px;
+          width: 70%;
+          padding: 0px 20px;
+        }
         a {
           display: block;
           margin-top: 21px;
@@ -62,6 +74,9 @@ export default {
       background-attachment: fixed;
       width: 70%;
       height: 400px;
+      @media (max-width: $mobile-width) {
+        width: 100%;
+      }
     }
   }
 }
