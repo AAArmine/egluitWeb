@@ -74,6 +74,7 @@ export default {
 @import "@/assets/_variables.scss";
 
 .nav-bar {
+  background-color: $bg-color;
   .nav-container {
     display: flex;
     justify-content: space-between;
@@ -112,7 +113,6 @@ export default {
       transition: all 0.3s ease;
     }
   }
-
   ul {
     list-style: none;
     display: flex;
@@ -120,7 +120,6 @@ export default {
     margin: 0;
     transition: max-height 0.3s ease;
     overflow: hidden;
-    background-color: white;
     z-index: 1;
     position: relative;
 
