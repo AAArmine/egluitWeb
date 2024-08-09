@@ -27,23 +27,25 @@ export default {
   padding-bottom: 50px;
   .wrapper-90 {
     display: flex;
-    align-items: stretch; 
-    gap: 2%; 
+    align-items: stretch;
+    gap: 2%;
     @media (max-width: $mobile-width) {
       flex-wrap: wrap;
     }
     .content-item {
-      width: 49%; 
-      padding-bottom: 30px;
+      width: 49%;
+      padding: 10px 30px 50px 50px;
       background-color: $bg-light;
-
+      .title {
+        text-align: center;
+      }
       @media (max-width: $mobile-width) {
         width: 100%;
       }
     }
 
     .image {
-      flex: 1; 
+      flex: 1;
       background-image: url("@/assets/images/aboutMain.png");
       background-size: cover;
       background-repeat: no-repeat;
