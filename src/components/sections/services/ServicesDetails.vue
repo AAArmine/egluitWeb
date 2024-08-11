@@ -1,5 +1,5 @@
 <template>
-  <section class="details wrapper-70">
+  <section id ='details' class="wrapper-70">
     <h2 class="title">Hvad forhandler vi?</h2>
     <p class="small short">
       Vi specialiserer os ikke blot i skræddersyede programmer, der
@@ -33,7 +33,7 @@
         <div class="card">
           <img
             src="@/assets/images/enterprice.png"
-            alt="dollar-icon"
+            alt="enterprice"
             class="card-img"
           />
           <div>
@@ -50,7 +50,7 @@
         <div class="card">
           <img
             src="@/assets/images/monitor.png"
-            alt="dollar-icon"
+            alt="monitor"
             class="card-img"
           />
           <div>
@@ -65,7 +65,7 @@
         <div class="card">
           <img
             src="@/assets/images/cloud.png"
-            alt="dollar-icon"
+            alt="cloud"
             class="card-img"
           />
           <div>
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.details {
+#details {
   padding: 50px 0;
   .small, li {
     font-size: 15.5px;
@@ -104,8 +104,14 @@ export default {
   .flex-cont {
     display: flex;
     justify-content: space-between;
+     @media (max-width: $mobile-width) {
+      flex-wrap: wrap;
+    }
     .item {
       width: 46%;
+       @media (max-width: $mobile-width) {
+      width: 100%;
+    }
       .card {
         display: flex;
         align-items: start;

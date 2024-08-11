@@ -21,7 +21,7 @@
               hoverBorder="black"
               hoverTextColor="white"
               text="LÆS MERE"
-              navigateTo="/contact"
+              navigateTo="/services#expert"
             />
           </div>
         </div>
@@ -46,7 +46,7 @@
               hoverBorder="black"
               hoverTextColor="white"
               text="LÆS MERE"
-              navigateTo="/contact"
+              navigateTo="/services#details"
             />
           </div>
         </div>

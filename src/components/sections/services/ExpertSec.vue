@@ -1,5 +1,5 @@
 <template>
-  <section class="expert">
+  <section id="expert">
     <div class="expert-wrapper">
       <div class="expert-item">
         <h2 class="expert-title">
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.expert {
+#expert {
   width: 100%;
   margin-top: 30px;
   padding: 20px 0;
