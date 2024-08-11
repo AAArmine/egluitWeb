@@ -1,25 +1,15 @@
 <template>
-  <div id="test-component">
-    Benefit page
-    <div class="nested-element">nested</div>
-  </div>
+  <offers-sec />
+  <expert-sec />
+  <services-details />
 </template>
 
 <script>
+import OffersSec from "@/components/sections/services/OffersSec.vue";
+import ExpertSec from "@/components/sections/services/ExpertSec.vue";
+import ServicesDetails from "@/components/sections/services/ServicesDetails.vue";
 export default {
   name: "ServicesPage",
-  components: {},
+  components: { OffersSec, ExpertSec, ServicesDetails },
 };
 </script>
-
-<style scoped lang="scss">
-#test-component {
-  color: blue;
-  font-size: 16px;
-
-  .nested-element {
-    color: red;
-    font-weight: bold;
-  }
-}
-</style>
