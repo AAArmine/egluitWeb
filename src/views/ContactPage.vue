@@ -1,25 +1,11 @@
 <template>
-  <div id="test-component">
-    Contact page
-    <div class="nested-element">nested</div>
-  </div>
+  <contact-sec />
 </template>
 
 <script>
+import ContactSec from "@/components/sections/contact/ContactSec.vue";
 export default {
   name: "ContactPage",
-  components: {},
+  components: { ContactSec },
 };
 </script>
-
-<style scoped lang="scss">
-#test-component {
-  color: blue;
-  font-size: 16px;
-
-  .nested-element {
-    color: red;
-    font-weight: bold;
-  }
-}
-</style>
