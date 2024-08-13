@@ -8,9 +8,12 @@
             type="text"
             id="name"
             v-model="form.name"
-            :class="{ error: formSubmitted && !form.name }"
+            :class="{ error: formSubmitted && !form.name && !successMessage }"
             placeholder="Indtast dit navn"
           />
+          <div v-if="formSubmitted && !form.name && !successMessage" class="error-message">
+            Please enter your name.
+          </div>
         </div>
         <div class="form-group">
           <label for="email">E-mail*</label>
@@ -18,9 +21,12 @@
             type="email"
             id="email"
             v-model="form.email"
-            :class="{ error: formSubmitted && (!form.email || !isEmailValid) }"
+            :class="{ error: formSubmitted && (!form.email || !isEmailValid) && !successMessage }"
             placeholder="Indtast din e-mailadresse"
           />
+          <div v-if="formSubmitted && (!form.email || !isEmailValid) && !successMessage" class="error-message">
+            Please enter a valid email address.
+          </div>
         </div>
       </div>
 
@@ -77,6 +83,10 @@
         text="Submit"
         type="submit"
       />
+
+      <div v-if="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
     </form>
   </div>
 </template>
@@ -95,6 +105,7 @@ const form = ref({
   message: "",
 });
 const formSubmitted = ref(false);
+const successMessage = ref("");
 
 const isEmailValid = computed(() =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)
@@ -105,8 +116,8 @@ async function handleSubmit() {
   if (isFormValid()) {
     try {
       await emailjs.send(
-        'service_h939glp', // Your Service ID
-        'template_cyx7hhk', // Your Template ID
+        'service_h939glp',
+        'template_cyx7hhk',
         {
           from_name: form.value.name,
           from_email: form.value.email,
@@ -115,15 +126,28 @@ async function handleSubmit() {
           subject: form.value.subject,
           message: form.value.message
         },
-        '7QHghtyZK0RVR-sDe' // Your User ID (Public Key)
+        '7QHghtyZK0RVR-sDe'
       );
-      alert('Form submitted successfully!');
+
+      form.value = {
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        subject: "",
+        message: "",
+      };
+      successMessage.value = "Tak for det indsendte!";
+      formSubmitted.value = false;
+
+      setTimeout(() => {
+        successMessage.value = "";
+      }, 5000);
     } catch (error) {
       console.error('Failed to send email:', error);
     }
   }
 }
-
 
 function isFormValid() {
   return form.value.name && form.value.email && isEmailValid.value;
@@ -180,7 +204,18 @@ textarea {
 
 input.error,
 textarea.error {
-  border-bottom: 1px solid red;
+  border: 1px solid red;
   background-color: #ffe6e6;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.success-message {
+  margin-top: 20px;
+  color: green;
+  font-weight: 600;
 }
 </style>
