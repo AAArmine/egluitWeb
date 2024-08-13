@@ -18,9 +18,7 @@
             type="email"
             id="email"
             v-model="form.email"
-            :class="{
-              error: formSubmitted && (!form.email || !isEmailValid),
-            }"
+            :class="{ error: formSubmitted && (!form.email || !isEmailValid) }"
             placeholder="Indtast din e-mailadresse"
           />
         </div>
@@ -85,6 +83,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import emailjs from "emailjs-com";
 import CustomButton from "@/components/CustomButton.vue";
 
 const form = ref({
@@ -97,20 +96,38 @@ const form = ref({
 });
 const formSubmitted = ref(false);
 
-const isEmailValid = computed(() => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email);
-});
+const isEmailValid = computed(() =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.value.email)
+);
 
-const handleSubmit = () => {
+async function handleSubmit() {
   formSubmitted.value = true;
   if (isFormValid()) {
-    alert("Form submitted successfully!");
+    try {
+      await emailjs.send(
+        'service_h939glp', // Your Service ID
+        'template_cyx7hhk', // Your Template ID
+        {
+          from_name: form.value.name,
+          from_email: form.value.email,
+          phone: form.value.phone,
+          address: form.value.address,
+          subject: form.value.subject,
+          message: form.value.message
+        },
+        '7QHghtyZK0RVR-sDe' // Your User ID (Public Key)
+      );
+      alert('Form submitted successfully!');
+    } catch (error) {
+      console.error('Failed to send email:', error);
+    }
   }
-};
+}
 
-const isFormValid = () => {
+
+function isFormValid() {
   return form.value.name && form.value.email && isEmailValid.value;
-};
+}
 </script>
 
 <style scoped>
