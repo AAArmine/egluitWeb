@@ -78,6 +78,9 @@ export default {
       width: 49%;
       display: flex;
       flex-direction: column; /* Align items vertically */
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.2s;
       @media (max-width: $mobile-width) {
         width: 100%;
         margin-top: 30px;

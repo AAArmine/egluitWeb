@@ -83,7 +83,7 @@ export default {
       width: 50%;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      animation-delay: 1s;
+      animation-delay: 0.2s;
       @media (max-width: $tablet-width) {
         width: 100%;
       }
@@ -92,9 +92,9 @@ export default {
         font-size: 27px;
         display: inline-block;
         transform: scaleX(1.2);
-         @media (max-width: $mobile-width) {
-         font-size: 22px;
-      }
+        @media (max-width: $mobile-width) {
+          font-size: 22px;
+        }
       }
       p {
         margin-top: 0;

@@ -31,6 +31,9 @@ export default {
   align-items: center;
   text-align: center;
   color: white;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 1s;
   .overlay {
     position: absolute;
     top: 0;
@@ -39,6 +42,10 @@ export default {
     height: 100%;
     z-index: 1;
     background: rgba(0, 0, 0, 0.6);
+    transition: all 0.5s ease;
+    &:hover {
+      background: rgba(0, 0, 0, 0.691);
+    }
   }
   h5 {
     font-size: 24px;

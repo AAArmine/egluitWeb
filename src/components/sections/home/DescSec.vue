@@ -67,6 +67,9 @@ export default {
       background-position: center center;
       width: 49%;
       height: 400px;
+       opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1s;
       @media (max-width: $mobile-width) {
         width: 100%;
         margin-top: 20px;

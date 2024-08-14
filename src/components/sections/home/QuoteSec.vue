@@ -72,8 +72,12 @@ export default {
       background-repeat: no-repeat;
       background-position: center center;
       background-attachment: fixed;
+      animation: fadeIn 1s forwards;
       width: 70%;
       height: 400px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1s;
       @media (max-width: $mobile-width) {
         width: 100%;
       }

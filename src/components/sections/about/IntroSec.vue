@@ -52,7 +52,9 @@ export default {
       background-position: center center;
       opacity: 0.7;
       height: auto;
-
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.2s;
       @media (max-width: $mobile-width) {
         width: 100%;
         height: 250px;
