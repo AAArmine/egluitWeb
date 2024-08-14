@@ -35,9 +35,15 @@ export default {
   background-color: $bg-light;
   display: flex;
   justify-content: space-between;
+  @media (max-width: $mobile-width) {
+    flex-wrap: wrap;
+  }
   .contact-item {
     width: 49%;
     text-align: center;
+    @media (max-width: $mobile-width) {
+      width: 100%;
+    }
     h1 {
       font-size: 42px;
       font-weight: 400;
