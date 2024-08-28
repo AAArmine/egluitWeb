@@ -40,20 +40,21 @@ export default defineComponent({
   data() {
     return {
       teamMembers: [
-        { id: 1, image: "main.png", name: "Hrayr", position: "Programmer" },
+        { id: 1, image: "Hrayr.png", name: "Hrayr", position: "Programmer" },
+        {
+          id: 3,
+          image: "webDev.png",
+          name: "Armine",
+          position: "Web Developer",
+        },
         {
           id: 2,
           image: "main2.png",
           name: "Server Expert",
           position: "Server Specialist",
         },
-        {
-          id: 3,
-          image: "main3.png",
-          name: "Armine",
-          position: "Web Developer",
-        },
-        { id: 4, image: "main2.png", name: "Stefan", position: "CEO" },
+
+        { id: 4, image: "Stefan.png", name: "Stefan", position: "CEO" },
       ],
       settings: {
         itemsToShow: 3,
@@ -82,9 +83,11 @@ export default defineComponent({
   text-align: center;
 }
 .member-image {
-  width: 250px;
-  height: 200px; 
-  object-fit: cover; 
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.8;
 }
 .member-info {
   padding: 10px;
