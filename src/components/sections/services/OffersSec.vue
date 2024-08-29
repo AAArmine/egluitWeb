@@ -70,14 +70,14 @@ export default {
   .offers-cont {
     display: flex;
     justify-content: space-between;
-    align-items: stretch; /* Ensures that all items stretch to the same height */
+    align-items: stretch;
     @media (max-width: $mobile-width) {
       flex-wrap: wrap;
     }
     .offers-item {
       width: 49%;
       display: flex;
-      flex-direction: column; /* Align items vertically */
+      flex-direction: column; 
       opacity: 0;
       animation: fadeIn 2s forwards;
       animation-delay: 0.2s;
@@ -91,13 +91,13 @@ export default {
         object-fit: cover;
       }
       .offers-desc {
-        flex: 1; /* Allows the description area to stretch and fill available space */
+        flex: 1; 
         margin-top: 30px;
         background-color: $bg-light;
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* Aligns the content and button at the same level */
+        justify-content: space-between; 
         h2 {
           padding-top: 40px;
           font-weight: 400;

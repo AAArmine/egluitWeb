@@ -24,7 +24,7 @@
         specialiserer sig i udvikling og design af hjemmesider. Hendes
         ekspertise giver os mulighed for at tilbyde en bred vifte af tjenester,
         herunder implementering af dit lagersystem som en webbaseret
-        applikation. Ud over dette er Aaarmine en erfaren hånd til opsætning af
+        applikation. Ud over dette er Armine en erfaren hånd til opsætning af
         hjemmesider, hvor hun ikke kun fokuserer på det æstetiske design, men
         også sikrer en problemfri drift.
       </p>
